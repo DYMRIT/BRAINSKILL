@@ -1,0 +1,1 @@
+web: gunicorn BRAINSKILL.wsgi --log-file -
