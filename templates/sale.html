@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Акции{% endblock %}
+
+
+{% block content %}
+<div class="container" style="margin-bottom: 18%">
+  <h1 class="text-3">Акция</h1>
+  	<table class="table table_one">
+		<thead class="thead-dark">
+			<tr>
+			    <th scope="col">Пакет</th>
+                <th scope="col">Старая цена</th>
+                <th scope="col">Новая цена</th>
+			</tr>
+		</thead>
+	<tbody>
+        <tr>
+            <td>Первый месяц</td>
+            <td><del>1399<span>&#8381;</span></del></td>
+            <td>Бесплатно</td>
+        </tr>
+        <tr>
+            <td>Купи два месяца сразу</td>
+            <td><del>2798<span>&#8381;</span></del></td>
+            <td>2500<span>&#8381;</span></td>
+        </tr>
+        <tr>
+            <td>Приведи друга</td>
+            <td>Получи скидку 399<span>&#8381;</span></td>
+            <td></td>
+        </tr>
+    </tbody>
+  </table>
+</div>
+{% endblock %}

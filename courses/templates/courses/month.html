@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ slug_article }}{% endblock %}
+
+{% block content %}
+    <div>
+    <h2>Описание:</h2>
+    <p>{{ article.long_description }}</p>
+    </div>
+    <div class="row">
+        <div class="col-md-8 mx-auto my-2">
+        <table class="table table-dark table-striped">
+            <tr>
+                    <th>&nbsp;</th>
+                    <th>Начало</th>
+                    <th>Дедлайн</th>
+                    <th>pdf без решения</th>
+                    <th>pdf с решением</th>
+            </tr>
+            {% for object in page_obj %}
+                {% if object.pub_date_for_student < time_now %}
+                <tr>
+                    <td>Домашнее задание №{{ object.number }}</td>
+                    <td>{{ object.pub_date_for_student }}</td>
+                    <td>{{ object.deadline }}</td>
+                    <td><a href="{{ object.pdf_file_for_student.url }}" style="color:#fff;">Без решения</a></td>
+                    <td>
+                        {% if object.pub_date_for_teacher < time_now %}
+                            <a href="{{ object.pdf_file_for_teacher.url }}" style="color:#fff;">С решения</a>
+                        {% endif %}
+                        {% else %}
+                            &nbsp;
+                    </td>
+                </tr>
+                {% endif %}
+            {% endfor %}
+        </table>
+        </div>
+    </div>
+{% endblock %}
